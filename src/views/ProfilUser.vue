@@ -216,8 +216,6 @@ export default {
           this.input_description = response.data.result.description;
           this.input_date_naissance = response.data.result.dn;
           this.input_tel = response.data.result.tel;
-
-          console.log(this.input_unsername, this.input_email, this.input_sexe);
         })
         .catch((error) => {
           console.log(error);
@@ -238,8 +236,7 @@ export default {
               this.success_message = "Les modifications ont été effectuées avec succés"
               //Si le user choisit de modifier l'email, lui demander de se reconnecter avec la nouvelle @
               if (this.input_email != this.$store.state.member.email) {
-                this.$store.commit("setToken", false);
-                this.$store.commit("setMember", false);
+                route.push('/LogOut');
               } else {
                  //Recharger les informations du user après modification
                 this.loadUserInformations();
