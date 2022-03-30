@@ -27,9 +27,9 @@
                   <br />
                   <time datetime="2016-1-1">
                     <b>a rejoins le :</b>
-                    {{ this.$store.state.member.created_at.substr(0, 10) }}
+                    {{ this.$store.state.member.created_at.substring(0, 10) }}
                     <b>à</b>
-                    {{ this.$store.state.member.created_at.substr(11, 8) }}
+                    {{ this.$store.state.member.created_at.substring(11, 8) }}
                   </time>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export default {
               this.success_message = "Les modifications ont été effectuées avec succés"
               //Si le user choisit de modifier l'email, lui demander de se reconnecter avec la nouvelle @
               if (this.input_email != this.$store.state.member.email) {
-                route.push('/LogOut');
+                this.$router.push("LogOut");
               } else {
                  //Recharger les informations du user après modification
                 this.loadUserInformations();
