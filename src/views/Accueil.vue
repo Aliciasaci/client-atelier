@@ -134,7 +134,7 @@ export default {
       showModalFlag: false,
       showModalFlagL: false,
       input_search: "",
-      eventLink: "http://localhost:8080/DetailEvent/", //!changer ça pour le server de docketu
+      eventLink: "https://reunionu-net.netlify.app/DetailEvent/",
       search_results: null,
       search_message: "",
       invitation:null,
@@ -144,7 +144,6 @@ export default {
     this.$api
       .get(`events/creators/${this.$store.state.member.id}`)
       .then((response) => {
-        console.log(response.data.event);
         this.events = response.data.event;
       })
       .catch((error) => {
@@ -157,7 +156,6 @@ export default {
         if (confirm("êtes-vous sûre de vouloir supprimer cet évènement ?")) {
           this.$api.delete(`events/${id}`)
             .then((response) => {
-              console.log(response);
               location.reload();
             })
             .catch((error) => {
@@ -179,7 +177,6 @@ export default {
               search: this.input_search
             }
           ).then(response => {
-            console.log(response);
             this.search_results = response.data.result;
           }).catch(error => {
             this.search_message = "Aucun résultat trouvé :(";
@@ -207,11 +204,10 @@ export default {
     },
     cancelModalLien() {
       this.showModalFlagL = false;
-      this.eventLink = "http://localhost:8080/DetailEvent/";
+      this.eventLink = "https://reunionu-net.netlify.app/DetailEvent/";
     },
     createInvitation() {
       if (this.invitation && this.search_results.id) {
-        console.log(this.search_results.id);
         this.$api
           .post("invitations/",
             {
