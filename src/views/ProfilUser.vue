@@ -189,7 +189,7 @@ export default {
       input_sexe: "",
       input_description: "",
       input_date_naissance: "",
-      input_tel: "",
+      input_tel: 0,
       user_informations: "",
       error_message: "",
       success_message: "",
