@@ -122,7 +122,7 @@
                         <p class="control is-expanded">
                           <input
                             class="input"
-                            type="text"
+                            type="number"
                             placeholder="numéro de téléphone"
                             v-bind:readonly="readonly"
                             v-model="input_tel"
